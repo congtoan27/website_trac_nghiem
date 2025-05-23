@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <title>Website Trắc nghiệm</title>
+    <link rel="icon" href="https://aztest.vn/uploads/news/2019/1_6.jpg" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css}">
+    <script th:src="@{https://code.jquery.com/jquery-3.5.1.min.js}"></script>
+    <script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js}"></script>
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css}">
+    <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
+    <link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
+    <link th:href="@{https://fonts.googleapis.com/css2?family=Poppins&display=swap}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/loader.css}">
+    <link rel="stylesheet" th:href="@{/css/navbar.css}">
+    <link rel="stylesheet" th:href="@{/css/slick.css}">
+    <link rel="stylesheet" th:href="@{/css/blog.css}">
+    <link rel="stylesheet" th:href="@{/css/default-page.css}">
+    <link rel="stylesheet" th:href="@{/css/dropdown.css}">
+</head>
+<body>
+<div id="preloader"></div>
+<header>
+    <div class="container-fluid">
+        <div class="navb-logo">
+            <img th:src="@{/img/logo.png}" alt="Logo">
+        </div>
+        <div class="navb-items d-none d-xl-flex">
+            <div class="item"><a href="/">Trang chủ</a></div>
+            <div class="item"><a href="/default">Tạo bài kiểm tra</a></div>
+            <div class="item"><a href="/tin-tuc">Tin tức</a></div>
+            <div class="item"><a href="/tai-lieu">Tài liệu</a></div>
+            <div class="item"><a href="/aboutus">Về chúng tôi</a></div>
+            <div class="item-button">
+                <a class="login-btn" href="/login" type="button"><i class="fa-solid fa-user"></i>Đăng nhập</a>
+            </div>
+        </div>
+        <div class="mobile-toggler d-lg-none">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#navbModal">
+                <i class="fa-solid fa-bars"></i>
+            </a>
+        </div>
+        <div class="modal fade" id="navbModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <img th:src="@{/img/logo.png}" alt="Logo">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-line">
+                            <i class="fa-solid fa-house"></i><a href="/">Trang chủ</a>
+                        </div>
+                        <div class="modal-line">
+                            <i class="fa-solid fa-bell-concierge"></i><a href="/default">Tạo bài kiểm tra</a>
+                        </div>
+                        <div class="modal-line">
+                            <i class="fa-solid fa-file-lines"></i><a href="/tin-tuc">Tin tức</a>
+                        </div>
+                        <div class="modal-line">
+                            <i class="fa-solid fa-circle-info"></i><a href="/tai-lieu">Tài liệu</a>
+                        </div>
+                        <a href="/login" class="navb-button" type="button">Đăng nhập</a>
+                    </div>
+                    <div class="mobile-modal-footer">
+                        <a target="_blank" href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a target="_blank" href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a target="_blank" href="#"><i class="fa-brands fa-youtube"></i></a>
+                        <a target="_blank" href="#"><i class="fa-brands fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="banner" style="margin-bottom: 50px">
+    <div><img th:src="@{/img/banner.png}" alt="Banner" style="height: unset"></div>
+    <div><img th:src="@{/img/banner-2.png}" alt="Banner" style="height: unset"></div>
+</div>
+<div class="container-fluid">
+    <div class="row" style="margin: 0 5%">
+        <div class="col-md-3">
+            <div class="card text-primary bg-light mb-3">
+                <div class="card-header">Thống kê</div>
+                <div class="card-body bg-white">
+                    <h5 class="card-title">Thông tin thống kê</h5>
+                    <p class="card-text">Nội dung thống kê giả lập.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="container-fluid">
+                <h4 class="text-danger warning" th:if="${warning}" th:text="${warning}"></h4>
+                <div class="row">
+                    <a class="mid_card card-block col-sm-12 col-lg-6 mb-2 rounded btn"
+                       th:each="subject : ${subjects}" th:href="@{/listClassSubject/__${subject.id}__}">
+                        <img alt="Photo" th:src="@{${subject.image}}">
+                        <h5 class="card-title mt-3 mb-3" th:text="${subject.name}"></h5>
+                        <br>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-primary mb-3">
+                <div class="card-header">Vinh danh bảng vàng</div>
+                <div class="card-body">
+                    <h5 class="card-title">Thành viên xuất sắc</h5>
+                    <p class="card-text">Danh sách thành viên giả lập.</p>
+                </div>
+            </div>
+            <div class="card text-primary mb-3">
+                <div class="card-header">Tài liệu tham khảo</div>
+                <div class="card-body">
+                    <h5 class="card-title">Tài liệu</h5>
+                    <p class="card-text">Danh sách tài liệu giả lập.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section id="aa-latest-blog">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="aa-latest-blog-area">
+                    <h2><i class="far fa-newspaper"></i> TIN TỨC TRONG TUẦN</h2>
+                    <div class="row aa-animation-board-new news-list" style="display: flex;gap: 0 20px;margin-bottom: 5px">
+                        <div class="col-md-3 col-sm-3 pd-0 d-flex" th:each="news :${newses}">
+                            <div class="aa-latest-blog-single">
+                                <figure class="aa-blog-img">
+                                    <a th:href="@{/tin-tuc/__${news.id}__}"><img th:src="@{${news.image}}" alt="Ảnh"></a>
+                                    <figcaption class="aa-blog-img-caption">
+                                        <span th:text="${#dates.format(news.createDate, 'dd/MM/yyyy') + ' - ' + news.view + ' lượt xem'}"></span>
+                                    </figcaption>
+                                </figure>
+                                <div class="aa-blog-info">
+                                    <h3 class="aa-blog-title"><a th:href="@{/tin-tuc/__${news.id}__}" th:text="${news.title}"></a></h3>
+                                    <a th:href="@{/tin-tuc/__${news.id}__}" class="aa-read-mor-btn" style="color: #b69457;">Xem thêm<span class="fa fa-long-arrow-right"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="text-center text-lg-start bg-white text-muted">
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+        <div class="me-5 d-none d-lg-block">
+            <span>Get connected with us on social networks:</span>
+        </div>
+        <div>
+            <a href="" class="me-4 link-secondary"><i class="fab fa-facebook-f"></i></a>
+            <a href="" class="me-4 link-secondary"><i class="fab fa-twitter"></i></a>
+            <a href="" class="me-4 link-secondary"><i class="fab fa-google"></i></a>
+            <a href="" class="me-4 link-secondary"><i class="fab fa-instagram"></i></a>
+            <a href="" class="me-4 link-secondary"><i class="fab fa-linkedin"></i></a>
+            <a href="" class="me-4 link-secondary"><i class="fab fa-github"></i></a>
+        </div>
+    </section>
+    <section>
+        <div class="container text-center text-md-start mt-5">
+            <div class="row mt-3">
+                <div class="col-md-6 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        <i class="fas fa-gem me-3 text-secondary"></i>Website trắc nghiệm
+                    </h6>
+                    <p>
+                        Website thi trắc nghiệm miễn phí, với ngân hàng câu hỏi và đề thi được chọn lọc kỹ càng, chính xác, mang đến trải nghiệm thực tế cho học viên.
+                    </p>
+                </div>
+                <div class="col-md-6 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                    <p><i class="fas fa-home me-3 text-secondary"></i>Da Nang, Viet Nam</p>
+                    <p><i class="fas fa-envelope me-3 text-secondary"></i>dunglee102@gmail.com</p>
+                    <p><i class="fas fa-phone me-3 text-secondary"></i> +84826145231</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
+        © 2023 Copyright by
+        <a class="text-reset fw-bold" href="https://mdbootstrap.com/">Le Van Dung</a>
+    </div>
+</footer>
+<script type="text/javascript" th:src="@{https://code.jquery.com/jquery-1.11.0.min.js}"></script>
+<script type="text/javascript" th:src="@{https://code.jquery.com/jquery-migrate-1.2.1.min.js}"></script>
+<script type="text/javascript" th:src="@{https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js}"></script>
+<script th:src="@{https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js}"></script>
+<script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js}"></script>
+<script type="module" th:src="@{https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js}"></script>
+<script nomodule th:src="@{https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js}"></script>
+<script th:src="@{/js/loader.js}"></script>
+<script th:src="@{/js/slider.js}"></script>
+<script>
+    var url = window.location.href;
+    var a = document.getElementsByClassName("item");
+    for(var i = 0; i<a.length;i++){
+        if(a[i].children[0].href === url){
+            a[i].classList.add("active");
+        }
+    }
+</script>
+</body>
+</html>
