@@ -5,6 +5,8 @@ import com.tttn.webthitracnghiem.model.SubjectRequest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 public interface ISubjectService {

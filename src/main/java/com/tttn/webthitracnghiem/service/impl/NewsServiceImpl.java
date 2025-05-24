@@ -2,6 +2,7 @@ package com.tttn.webthitracnghiem.service.impl;
 
 import com.tttn.webthitracnghiem.model.News;
 import com.tttn.webthitracnghiem.model.NewsRequest;
+import com.tttn.webthitracnghiem.model.Subject;
 import com.tttn.webthitracnghiem.repository.NewsRepository;
 import com.tttn.webthitracnghiem.service.IFileService;
 import com.tttn.webthitracnghiem.service.INewsService;

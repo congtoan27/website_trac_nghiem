@@ -1,6 +1,7 @@
 package com.tttn.webthitracnghiem.service;
 
 import com.tttn.webthitracnghiem.model.IQ;
+import com.tttn.webthitracnghiem.model.Result;
 
 import java.util.List;
 

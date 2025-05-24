@@ -1,6 +1,7 @@
 package com.tttn.webthitracnghiem.service.impl;
 
 import com.tttn.webthitracnghiem.service.IFileService;
+import org.apache.tomcat.util.http.fileupload.FileItem;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 

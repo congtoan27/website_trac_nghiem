@@ -3,6 +3,8 @@ package com.tttn.webthitracnghiem.service.impl;
 import com.tttn.webthitracnghiem.model.Exam;
 import com.tttn.webthitracnghiem.model.ExamRequest;
 import com.tttn.webthitracnghiem.repository.ExamRepository;
+import com.tttn.webthitracnghiem.repository.LessonRepository;
+import com.tttn.webthitracnghiem.repository.UserRepository;
 import com.tttn.webthitracnghiem.service.IExamService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

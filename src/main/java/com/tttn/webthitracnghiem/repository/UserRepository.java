@@ -1,5 +1,6 @@
 package com.tttn.webthitracnghiem.repository;
 
+import com.tttn.webthitracnghiem.model.News;
 import com.tttn.webthitracnghiem.model.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
