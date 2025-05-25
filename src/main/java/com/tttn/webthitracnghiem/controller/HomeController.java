@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.print.Doc;
+import java.sql.Date;
 import java.util.*;
 
 @Controller
@@ -27,10 +29,8 @@ public class HomeController {
     ISubjectService subjectService;
     @Autowired
     IResultService rService;
-    @Autowired
-    IDocumentService documentService;
-    @Autowired
-    INewsService newsService;
+
+   
     @Autowired
     IClassesService classesService;
     @Autowired
@@ -73,84 +73,41 @@ public class HomeController {
             model.addAttribute("userName", userName);
         }
         Page<Subject> subjects = subjectService.findAll(pageable);
-        List<Result> sList = rService.getTopTen();
-        // Danh sách tài liệu
-        List<Document> documents = documentService.findAll();
-        List<Document> sDocument = new ArrayList<>();
-        for (int i = 0; i < documents.size(); i++) {
-            if (i >= 5) {
-                break;
-            }
-            sDocument.add(documents.get(i));
-        }
-        model.addAttribute("documents", sDocument);
-        // Danh sách tin tức trong tuần
-        List<News> newses = newsService.getNewsInWeek();
+
+
+
+
+
         // Danh sách thành viên mới
         List<User> newUsers = userService.getNewMember();
-        model.addAttribute("sList", sList);
+
         int total = userService.findByTotalUser();
         model.addAttribute("newUsers", newUsers);
         model.addAttribute("totalMember", userService.getTotalMember());
-        model.addAttribute("newses", newses);
+
         model.addAttribute("subjects", subjects);
         return "default-page";
     }
 
-    @GetMapping("/tin-tuc")
-    public String news(Model model, @PageableDefault(value = 6) Pageable pageable) {
-        Page<News> newses = newsService.findAll(pageable);
-        model.addAttribute("newses", newses);
-        return "news";
-    }
 
-    @GetMapping("/tai-lieu")
-    public String document(Model model, @PageableDefault(value = 6) Pageable pageable) {
-        Page<Document> documents = documentService.findAll(pageable);
-        model.addAttribute("documents", documents);
-        return "document";
-    }
 
-    @GetMapping("/tin-tuc/{id}")
-    public String newsDetail(@PathVariable int id, Model model) {
-        News news = newsService.findById(id);
-        model.addAttribute("news", news);
-        news.setView(news.getView() + 1);
-        newsService.save(news);
-        return "blog-detail";
-    }
 
-    @GetMapping("/tai-lieu/{id}")
-    public String documentDetail(@PathVariable int id, Model model) {
-        Document document = documentService.findById(id);
-        model.addAttribute("document", document);
-        document.setView(document.getView() + 1);
-        documentService.save(document);
-        return "document-detail";
-    }
+
+
+
 
     @GetMapping("/listClassSubject/{id}")
     public String listClassSubject(@PathVariable int id, Model model) {
         List<SubjectClasses> subjectClasses = subjectClassService.findBySubject(id);
         model.addAttribute("subjectClasses",subjectClasses);
-        // Danh sách tài liệu
-        List<Document> documents = documentService.findAll();
-        List<Document> sDocument = new ArrayList<>();
-        for (int i = 0; i < documents.size(); i++) {
-            if (i >= 5) {
-                break;
-            }
-            sDocument.add(documents.get(i));
-        }
-        List<News> newses = newsService.getNewsInWeek();
-        List<Result> sList = rService.getTopTen();
-        model.addAttribute("sList", sList);
+
+
+
         int total = userService.getTotalMember();
         List<User> newUsers = userService.getNewMember();
         model.addAttribute("totalMember", total);
         model.addAttribute("newUsers", newUsers);
-        model.addAttribute("newses", newses);
-        model.addAttribute("documents", documents);
+
         return "listClassSubject";
     }
 
@@ -167,24 +124,15 @@ public class HomeController {
         }
         model.addAttribute("chapters", chapters);
 
-        // Danh sách tài liệu
-        List<Document> documents = documentService.findAll();
-        List<Document> sDocument = new ArrayList<>();
-        for (int i = 0; i < documents.size(); i++) {
-            if (i >= 5) {
-                break;
-            }
-            sDocument.add(documents.get(i));
-        }
-        List<News> newses = newsService.getNewsInWeek();
-        List<Result> sList = rService.getTopTen();
-        model.addAttribute("sList", sList);
+
+
+
+
         int total = userService.getTotalMember();
         List<User> newUsers = userService.getNewMember();
         model.addAttribute("totalMember", total);
         model.addAttribute("newUsers", newUsers);
-        model.addAttribute("newses", newses);
-        model.addAttribute("documents", documents);
+
         model.addAttribute("subject",subjectService.findById(subjectId));
         model.addAttribute("class",classesService.findById(classId));
         return "studyProgramSubject";

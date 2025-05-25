@@ -11,8 +11,8 @@
     <groupId>com.tttn</groupId>
     <artifactId>WebThiTracNghiem</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>webthitracnghiem</name>
-    <description>webthitracnghiem</description>
+    <name>WebThiTracNghiem</name>
+    <description>WebThiTracNghiem</description>
     <properties>
         <java.version>17</java.version>
     </properties>

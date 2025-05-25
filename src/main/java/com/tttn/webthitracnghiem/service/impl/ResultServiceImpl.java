@@ -6,6 +6,8 @@ import com.tttn.webthitracnghiem.service.IResultService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -13,10 +15,7 @@ public class ResultServiceImpl implements IResultService {
     @Autowired
     ResultRepository resultRepository;
 
-    @Override
-    public List<Result> getTopTen() {
-        return resultRepository.findTopTen();
-    }
+
 
     @Override
     public List<Result> findByHistory(String id) {

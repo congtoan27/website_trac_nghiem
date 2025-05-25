@@ -1,5 +1,6 @@
 package com.tttn.webthitracnghiem.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;

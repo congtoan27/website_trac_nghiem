@@ -36,10 +36,8 @@
 <!-- Main Container Start -->
 <div class="container-fluid mt-3">
     <div class="row" style="margin: 0 5%">
-        <div class="col-md-3">
-            <div th:replace="~{/default-page :: card-left}"></div>
-        </div>
-        <div class="col-md-6">
+
+        <div class="col-md-12">
             <div class="container-fluid">
                 <div class="row">
                     <div class="mid_card card-block col-sm-12 col-lg-12 mb-2 rounded btn"
@@ -57,12 +55,10 @@
                 <span>Chưa có chương trình học của môn <span style="text-transform: uppercase;font-weight: bold" th:text="${subject.name}+' ' + ${class.nameClass}"></span></span>
             </div>
         </div>
-        <div class="col-md-3">
-            <div th:replace="~{/default-page :: card-right}"></div>
-        </div>
+
     </div>
 </div>
-<div th:replace="~{/default-page :: news}"></div>
+
 <!-- Footer -->
 <div th:replace="~{/default-page :: footer}"></div>
 <!-- Footer -->

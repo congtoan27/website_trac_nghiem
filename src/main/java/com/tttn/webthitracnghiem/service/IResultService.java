@@ -5,7 +5,7 @@ import com.tttn.webthitracnghiem.model.Result;
 import java.util.List;
 
 public interface IResultService {
-    List<Result> getTopTen();
+
 
     List<Result> findByHistory(String id);
 

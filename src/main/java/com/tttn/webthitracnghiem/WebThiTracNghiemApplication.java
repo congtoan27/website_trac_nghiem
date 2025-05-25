@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class WebThiTracNghiemApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(WebThiTracNghiemApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(WebThiTracNghiemApplication.class, args);
+    }
 
 }

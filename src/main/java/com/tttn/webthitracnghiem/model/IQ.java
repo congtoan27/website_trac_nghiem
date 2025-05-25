@@ -12,7 +12,9 @@ public class IQ {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private double mark;
+    @Column(name = "start_time")
     private Timestamp startTime;
+    @Column(name = "end_time")
     private Timestamp endTime;
     @OneToOne(targetEntity = User.class)
     @JoinColumn(name = "username",referencedColumnName = "id" )

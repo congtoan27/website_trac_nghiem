@@ -1,5 +1,14 @@
 package com.tttn.webthitracnghiem.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import java.util.Set;
+
 public class QuestionRequest {
     private int quesId;
     private String title;

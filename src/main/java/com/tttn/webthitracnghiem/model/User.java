@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
+import javax.print.Doc;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import java.sql.Date;
@@ -64,9 +65,7 @@ public class User {
     @OneToOne(mappedBy = "users", cascade = CascadeType.REMOVE)
     @JsonManagedReference
     private IQ iq;
-    @OneToMany(mappedBy = "users")
-    @JsonManagedReference
-    private Set<News> news;
+
 
 
     public User() {
@@ -74,7 +73,7 @@ public class User {
 
     public User(String id, String passWord, String rePassWord, String fullName, String email, String address,
                 String phoneNumber, String img, Date createDate, Set<Role> roles, List<Exam> exams,
-                Set<Document> documents, Result result, Set<News> news) {
+                Set<Document> documents, Result result) {
         this.id = id;
         this.passWord = passWord;
         this.rePassWord = rePassWord;
@@ -88,7 +87,7 @@ public class User {
         this.exams = exams;
         this.documents = documents;
         this.result = result;
-        this.news = news;
+
     }
 
     public IQ getIq() {
@@ -195,19 +194,7 @@ public class User {
         this.createDate = createDate;
     }
 
-    public Set<Document> getDocuments() {
-        return documents;
-    }
 
-    public void setDocuments(Set<Document> documents) {
-        this.documents = documents;
-    }
 
-    public Set<News> getNews() {
-        return news;
-    }
 
-    public void setNews(Set<News> news) {
-        this.news = news;
-    }
 }
