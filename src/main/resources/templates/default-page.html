@@ -25,6 +25,30 @@
     <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css}"
           integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <style>
+        .slick-dots {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            margin: 10px 0;
+            list-style: none;
+        }
+        .slick-dots li {
+            margin: 0 5px;
+        }
+        .slick-dots li button {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .slick-dots li.slick-active button {
+            background-color: black;
+        }
+    </style>
 </head>
 <body>
 <div id="preloader"></div>
@@ -121,8 +145,10 @@
     </div>
 </header>
 <div class="banner" style="margin-bottom: 50px" th:fragment="banner">
-    <div><img th:src="@{/img/banner.png}" alt="Banner" style="height: unset"></div>
-    <div><img th:src="@{/img/banner-2.png}" alt="Banner" style="height: unset"></div>
+
+    <div><img th:src="@{/img/banner_sinh.png}" alt="Banner" style="height: 330px"></div>
+    <div><img th:src="@{/img/banner_tuyensinh.jpg}" alt="Banner" style="height: 330px"></div>
+
 </div>
 <div class="container-fluid">
     <div class="row" style="margin: 0 5%">
