@@ -212,6 +212,28 @@
             font-weight: bold;
             border: 1px solid cadetblue;
         }
+        .slick-dots {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            margin: 10px 0;
+            list-style: none;
+        }
+        .slick-dots li {
+            margin: 0 5px;
+        }
+        .slick-dots li button {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .slick-dots li.slick-active button {
+            background-color: black;
+        }
     </style>
     <link rel="stylesheet" type="text/css" th:href="@{https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css}">
 </head>

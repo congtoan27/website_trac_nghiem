@@ -31,6 +31,31 @@
 
     <!-- Custom Theme Style -->
     <link th:href="@{/build/css/custom.min.css}" rel="stylesheet">
+
+    <style>
+        .slick-dots {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            margin: 10px 0;
+            list-style: none;
+        }
+        .slick-dots li {
+            margin: 0 5px;
+        }
+        .slick-dots li button {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .slick-dots li.slick-active button {
+            background-color: black;
+        }
+    </style>
 </head>
 
 <body class="nav-md">
